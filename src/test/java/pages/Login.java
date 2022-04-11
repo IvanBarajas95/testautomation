@@ -14,16 +14,14 @@ public class Login extends Method {
     @FindBy(xpath="//a[@class='button secondary radius']")
     private WebElement buttonlogout;
 
-    public Login initlogin(){
-        SEN_KEYS_INTERFACE.sendKeys(username,"tomsmith");
+    public Login initlogin(String user){
+        SEN_KEYS_INTERFACE.sendKeys(username,user);
         SEN_KEYS_INTERFACE.sendKeys(password,"SuperSecretPassword!");
         UTILS_INTERFACE.clickElement(buttonlogin);
-        WAIT_INTERFACE.pause(3);
     return this;}
 
     public Login logoutsession(){
         WAIT_INTERFACE.waitForElementToClickeable(10,5,buttonlogout);
         UTILS_INTERFACE.clickElement(buttonlogout);
-        WAIT_INTERFACE.pause(3);
     return this;}
 }

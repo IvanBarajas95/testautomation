@@ -5,9 +5,16 @@ import org.testng.annotations.Test;
 import pages.Login;
 
 public class Login_Test extends Hooks {
-    ThreadLocal<Login> iniciarsesion = ThreadLocal.withInitial(Login::new);
+    ThreadLocal<Login> iniciarsesion;
     @Test
     public void logininit(){
-        iniciarsesion.get().initlogin();
+        String tomsmith ="tomsmith";
+        iniciarsesion = ThreadLocal.withInitial(Login::new);
+        iniciarsesion.get().initlogin(tomsmith);
+    }
+    @Test
+    public void logout(){
+        iniciarsesion = ThreadLocal.withInitial(Login::new);
+        //iniciarsesion.get().initlogin().logoutsession();
     }
 }
